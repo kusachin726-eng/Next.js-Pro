@@ -1,7 +1,18 @@
-#!/bin/sh
+!/bin/sh
+set -e
 
-# Start Next.js standalone server in the background
-node server.js &
+echo "==============================="
+echo " Starting Next.js Application"
+echo " Port: $PORT"
+echo " User: $(whoami)"
+echo "==============================="
 
-# Start Nginx in the foreground
-nginx -g "daemon off;"
+# Check if build output exists
+if [ ! -f ".next/standalone/server.js" ]; then
+  echo "ERROR: .next/standalone/server.js not found!"
+  exit 1
+fi
+
+echo "Build output verified. Starting server..."
+
+exec node .next/standalone/server.js
