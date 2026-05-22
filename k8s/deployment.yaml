@@ -20,13 +20,19 @@ spec:
     spec:
       containers:
         - name: frontend-app
-
           image: sachin19102001/frontend-repo:1
-
           imagePullPolicy: Always
 
           ports:
             - containerPort: 3000
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
 
           env:
             - name: NEXTAUTH_SECRET
