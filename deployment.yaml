@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+    spec:
+      containers:
+        - name: frontend-app
+          image: sachin19102001/frontend-repo:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3005
+          env:
+            - name: NEXTAUTH_SECRET
+              value: "mysecret"
+            - name: NEXTAUTH_URL
+              value: "http://frontend.local"
+            - name: PORT
+              value: "3005"
