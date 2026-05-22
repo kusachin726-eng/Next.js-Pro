@@ -3,6 +3,7 @@ kind: Ingress
 
 metadata:
   name: frontend-ingress
+  namespace: frontend
 
 spec:
   ingressClassName: nginx
