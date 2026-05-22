@@ -30,10 +30,19 @@ spec:
 
           env:
             - name: NEXTAUTH_SECRET
-              value: "mysecret"
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secret
+                  key: NEXTAUTH_SECRET
 
             - name: NEXTAUTH_URL
-              value: "http://frontend.local"
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secret
+                  key: NEXTAUTH_URL
 
             - name: PORT
-              value: "3000"
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secret
+                  key: PORT
