@@ -1,0 +1,13 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+        "Name": "sachin19102001/crm-panel:v3",
+        "Update": "true"
+    },
+    "Ports": [
+        {
+            "ContainerPort": "3005",
+            "HostPort": "80"
+        }
+    ]
+}
