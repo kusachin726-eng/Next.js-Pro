@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: frontend-app
-          image: sachin19102001/frontend-repo:1
+          image: sachin19102001/crm-panel:v3
           imagePullPolicy: Always
 
           ports:
